@@ -1,15 +1,32 @@
 package Subjects;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Type;
+
+import javax.persistence.*;
+
+@Entity
 public class Subject {
 
     /** ATTRIBUTES **/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private int id;
+    @Column
     private String name;
+    @Column
     private char turn;
+    @Column
     private int start;
+    @Column
     private int end;
+    @Column
     private int max_students;
+    @Column
     private int number_students;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
     private Teacher teacher;
 
     /** CONSTRUCTOR **/
@@ -34,6 +51,7 @@ public class Subject {
         this.number_students = number_students;
         this.teacher = teacher;
     }
+    public Subject(){}
 
     /** GETTERS **/
     public int getId() {

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+</head>
+
+<body>
+    <h1>MVC Project</h1>
+    <form action="">
+        <fieldset>
+            <legend>Admin Session</legend>
+            <div>
+                <label for="">User</label>
+                <input type="number" name="" id="" placeholder="Introduce your User">
+            </div>
+            <div>
+                <label for="">Password</label>
+                <input type="password" value="" id="myInput" placeholder="Introduce your Password">
+                <input type="checkbox" onclick="passwordHiddenFunction()">Show Password
+            </div>
+            <div>
+                <input type="button" value="Ingresar">
+            </div>
+        </fieldset>
+    </form>
+</body>
+
+
+<!--Functions.. I think i will remove from here.. I'm not sure-->
+<script>
+    function passwordHiddenFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
+
+</html>

@@ -1,12 +1,23 @@
 package Subjects;
 
+import javax.persistence.*;
+import java.util.Collection;
+
+@Entity
 public class Teacher {
 
     /** ATTRIBUTES **/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+    @Column
     private int dni;
+    @Column
     private String firstName;
+    @Column
     private String lastName;
+    @Column
     private boolean active;
 
     /** CONSTRUCTOR **/
@@ -25,6 +36,7 @@ public class Teacher {
         firstName = _firstName;
         active = _active;
     }
+    public Teacher(){}
 
     /** GETTERS **/
     public int getId() {
@@ -55,5 +67,16 @@ public class Teacher {
     }
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    @OneToMany(mappedBy = "teacher")
+    private Collection<Subject> subject;
+
+    public Collection<Subject> getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Collection<Subject> subject) {
+        this.subject = subject;
     }
 }

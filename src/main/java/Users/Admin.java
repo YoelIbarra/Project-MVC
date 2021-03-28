@@ -1,12 +1,20 @@
 package Users;
 
+import javax.persistence.*;
+
+@Entity
 public class Admin {
     /** ATTRIBUTES **/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column
     private String user;
+    @Column
     private String password;
 
     /** CONSTRUCTOR **/
+    public Admin(){}
     //Only Test
     public Admin (int _id,String _user,String _password){
         user = _user;

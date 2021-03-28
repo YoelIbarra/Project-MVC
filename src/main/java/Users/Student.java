@@ -3,22 +3,29 @@ package Users;
 
 import Subjects.Subject;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
-public class Student {
+@Entity
+public class Student{
 
     /**
      * ATTRIBUTES
      **/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column
     private int dni;
+    @Column
     private int file;
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Subject> subjects = new ArrayList<>();
 
     /**
      * CONSTRUCTOR
      **/
+    public Student(){}
     //WITH ID
     public Student(int id, int dni, int file, List<Subject> subjects) {
         this.id = id;
